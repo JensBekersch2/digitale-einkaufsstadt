@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="de" ng-app="digitalApp" ng-controller="mainController">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">        
+    <title></title> 
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height:100%;
+        }
+    </style>    
+    <meta name="description" content="{{$route.current.description}}">
+    <link rel="shortcut icon" href="favicon16.png" >
+    <link rel="icon" href="favicon.png" sizes="32x32">
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <!-- endbuild -->
+    <base href="/"></base>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="header">
+            <div class="row">
+                <div class="col-xs-12 title">
+                    Digitale Einkaufsstadt Görlitz/Zgorzelec
+                </div>
+            </div>
+        </div>
+
+            <nav class="navbar navbar-default" ng-controller="MainMenuController">
+              <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button> 
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <ul class="nav navbar-nav">                    
+                    <li ng-click="select(0)" ng-class="{active: $route.current.activetab == 'home'}"><a href="/">Home</a></li>    
+                    <li ng-click="select(1)" ng-class="{active: $route.current.activetab == 'verein'}"><a href="/verein">Über den Verein</a></li>
+                    <li ng-click="select(2)" ng-class="{active: $route.current.activetab == 'unternehmen'}"><a href="/unternehmen">Für Unternehmen</a></li>
+                    <li ng-click="select(3)" ng-class="{active: $route.current.activetab == 'anfahrt'}"><a href="/anfahrt">Anfahrt</a></li>
+                  </ul>
+
+                </div><!-- /.navbar-collapse -->
+              </div><!-- /.container-fluid -->
+            </nav>
+
+        <div class="row content">
+            <div class="col-sm-12 no-padding">
+               <ng-view></ng-view> 
+            </div>
+        </div>
+        <div class="row footer">
+                <div class="col-sm-4 footer-box">
+                    Sitemap:<br><br>
+                    <ul class="sitemap">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="verein">Über den Verein</a></li>
+                        <li><a href="unternehmen">Für Unternehmen</a></li>
+                        <li><a href="anfahrt">Anfahrt & Kontakt</a></li>
+                    </ul>
+                </div>
+                <hr class="footer-divider">
+                <div class="col-sm-4 footer-box">
+                    Bürozeiten:<br><br>
+                    <i>Montag - Freitag:</i><br>
+                    8:00 Uhr bis 12:00 Uhr<br><br>
+                    <i>Rufen Sie uns an:</i><br>
+                    Tel.: 03581 - 123 456 78<br><br>
+                </div>   
+                <hr class="footer-divider">
+                <div class="col-sm-4 footer-box-last">
+                    Kontakt: <br><br>
+                    <b class="cd-font">Digitale Einkaufsstadt Görlitz/Zgrozelec</b> <br>
+                    <br>
+                    Bautzener Str. 29<br>
+                    02826 Görlitz<br><br>
+                    Email: <a href="mailto:info@digitale-einkaufsstadt.gr">info@digitale-einkaufsstadt.gr</a>
+                </div>       
+        </div>
+    </div>  
+    <!-- build:[src] scripts/lib/ --> 
+    <script src="../bower_components/lodash/dist/lodash-3.0.0.min.js"></script>
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../bower_components/angular/angular.min.js"></script> 
+    <script src="../bower_components/angular-route/angular-route.min.js"></script>  
+    <script src="../bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="../bower_components/angular-ui-bootstrap/ui-bootstrap-1.0.3.min.js"></script> 
+    <script src="../bower_components/angular-simple-logger/dist/angular-simple-logger.min.js"></script>
+    <script src="../bower_components/angular-google-maps/dist/angular-google-maps.min.js"></script>  
+    <!-- /build -->
+    <!-- build:js scripts/main.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controller.js"></script>
+    <script src="scripts/services.js"></script>
+    <!-- endbuild -->
+</body>
+</html>
